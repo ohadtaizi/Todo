@@ -1,114 +1,89 @@
-
 # TodoApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+This project is a full-stack Todo application built with Angular (frontend) and Node.js with Express (backend), using MongoDB for data storage.
 
-## Overview
+---
 
-TodoApp is a full-stack application using **Angular** (frontend) and **Node.js + Express + MongoDB** (backend). It allows for user registration, login via JWT tokens, and personal task management – each user only sees their own todos.
+## 1. How to Run the Project
 
-## Features
+### Prerequisites
+- Node.js & npm installed
+- Angular CLI installed globally (`npm install -g @angular/cli`)
+- MongoDB Atlas account or local MongoDB setup
 
-- Register and login securely (JWT authentication).
-- Add, edit, and mark todos as completed.
-- Search todos via query string filtering.
-- Users can only view their own todos (OPP applied in API via userId matching).
-
-## How to Download and Run
-
-### 1. Clone the Repository
-
-```
-git clone <your-repo-url>
-cd TodoApp
-```
-
-### 2. Install Dependencies
-
-For Angular frontend:
-
-```
-cd todo-app
+### Clone and Install Dependencies
+```bash
+git clone https://github.com/ohadtaizi/Todo.git
+cd Todo
 npm install
 ```
 
-For Node.js backend:
-
-```
+### Start Backend Server
+1. Navigate to the backend server folder:
+```bash
 cd server
-npm install
 ```
-
-### 3. Run the Application
-
-- **Backend** (runs on port 5000):
-
-```
+2. Start the server:
+```bash
 node index.js
 ```
+> Server will run on `http://localhost:5000`
 
-- **Frontend** (runs on port 4200):
-
-```
-cd todo-app
+### Start Angular Frontend
+In the project root folder:
+```bash
 ng serve
 ```
+> Open your browser at `http://localhost:4200`
 
-Visit: `http://localhost:4200/`
+---
 
-## Unit Tests
+## 2. How to Use the Application
 
-### Functions Tested:
+### Register/Login
+- Navigate to `/register` to create an account or `/login` to sign in.
+- Example credentials:
+  - Email: `r@r`
+  - Password: `1234`
 
-- **removeDuplicates(strings: string[])**:
-  - Ensures duplicate titles are removed from a list.
-- **findLongestWord(text: string)**:
-  - Finds the longest word in a string of text.
+### Add a Todo
+- Enter title and description in the fields and click “Add Todo”.
 
-Tests are written in `string-utils.spec.ts`. Run them using:
+### Mark as Complete
+- Click the checkbox on any todo to toggle its completion status.
 
-```
+### Search Todos
+- Use the search bar to filter todos by title or description.
+
+### Algorithm Features
+- Navigate to `/test` to use:
+  - **Remove Duplicates**: Input strings to remove duplicates.
+  - **Find Longest Word**: Input text to find the longest word.
+
+---
+
+## 3. Running Unit Tests
+
+Run tests via Karma test runner:
+```bash
 ng test
 ```
+Tests are written using Jasmine for Angular components and services.
 
-This uses the **Karma test runner** for Angular.
+---
 
-## OPP (Object-Oriented Programming) Explanation
+## 4. OOP Explanation in the Project
 
-- A `Todo` object is created per task, encapsulating `title`, `description`, `completed`, and `userId`.
-- User-specific data isolation is achieved by associating each Todo with a `userId` (decoded from JWT).
-- The backend enforces OPP by querying todos **only where userId matches** the authenticated user.
+- **Component-Based Architecture**: Each part of the UI (e.g., TodoList, TodoDetail) is modular, encapsulating its logic and state.
+- **Service-Oriented**: Although not fully implemented, `HttpClient` can be refactored into services for reuse.
+- **Reusability**: Functions like `removeDuplicates` and `findLongestWord` are utility-based and reusable.
+- **Encapsulation**: Component properties (e.g., `todos`, `newTitle`) manage their own data.
+- **Single Responsibility**: Each component handles a specific task (e.g., login, register, display todos).
 
-## Additional CLI Tools
+---
 
-Generate new Angular components easily:
+## Additional Resources
 
-```
-ng generate component your-component-name
-```
-
-For help:
-
-```
-ng generate --help
-```
-
-## Building for Production
-
-```
-ng build
-```
-
-Artifacts will be in the `dist/` directory, optimized for performance.
-
-## End-to-End Testing
-
-```
-ng e2e
-```
-
-Configure your preferred e2e framework (e.g., Cypress, Protractor).
-
-## Conclusion
-
-This project demonstrates practical full-stack development, integrating authentication, secure data access, and frontend-backend communication.
+- [Angular CLI Documentation](https://angular.dev/tools/cli)
+- [Express.js Docs](https://expressjs.com/)
+- [MongoDB Docs](https://www.mongodb.com/docs/)
