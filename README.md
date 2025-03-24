@@ -75,7 +75,6 @@ Tests are written using Jasmine for Angular components and services.
 ## 4. OOP Explanation in the Project
 
 - **Component-Based Architecture**: Each part of the UI (e.g., TodoList, TodoDetail) is modular, encapsulating its logic and state.
-- **Service-Oriented**: Although not fully implemented, `HttpClient` can be refactored into services for reuse.
 - **Reusability**: Functions like `removeDuplicates` and `findLongestWord` are utility-based and reusable.
 - **Encapsulation**: Component properties (e.g., `todos`, `newTitle`) manage their own data.
 - **Single Responsibility**: Each component handles a specific task (e.g., login, register, display todos).
