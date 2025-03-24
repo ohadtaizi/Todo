@@ -1,0 +1,21 @@
+<!-- src/app/components/todo-list/todo-list.component.html -->
+<div class="todo-container">
+    <h2>📝 Todo List</h2>
+  
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos" [class.completed]="todo.completed">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggle(todo)">
+        {{ todo.title }}
+        <a [routerLink]="['/todos', todo._id]">Details</a> 
+        <span>- {{ todo.description }}</span>
+      </li>
+    </ul>
+  
+    <form (ngSubmit)="addNewTodo()" class="todo-form">
+      <input [(ngModel)]="newTitle" name="title" placeholder="Title" required>
+      <input [(ngModel)]="newDescription" name="description" placeholder="Description" required>
+      <button type="submit">Add Todo</button>
+    </form>
+   
+  </div>
+  

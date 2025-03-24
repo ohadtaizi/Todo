@@ -1,0 +1,8 @@
+<div class="detail-container" *ngIf="todo">
+    <h2>{{ todo.title }}</h2>
+    <p><strong>Description:</strong> {{ todo.description }}</p>
+    <p><strong>Status:</strong> {{ todo.completed ? '✅ Completed' : '❌ Not Completed' }}</p>
+  </div>
+  
+  <a class="back-link" routerLink="/todos">⬅ Back to List</a>
+  <button class="nav-button" routerLink="/algo">Go to Algorithm Tasks</button>

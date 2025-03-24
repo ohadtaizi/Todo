@@ -1,0 +1,16 @@
+<div class="test-wrapper">
+<div class="card">
+    <h3>Remove Duplicates (From Todo Titles)</h3>
+    <p><strong>Titles:</strong> {{ allTitles }}</p>
+    <button (click)="onRemoveDuplicates()">Remove Duplicates</button>
+    <p *ngIf="uniqueTitles.length"><strong>Unique Titles:</strong> {{ uniqueTitles.join(', ') }}</p>
+  </div>
+  
+  <div class="card">
+    <h3>Find Longest Word (From Descriptions)</h3>
+    <!-- <p><strong>Descriptions:</strong> {{ allDescriptions }}</p> -->
+    <button (click)="onFindLongestWord()">Find Longest Word</button>
+    <p *ngIf="longestWord"><strong>Longest Word:</strong> {{ longestWord }}</p>
+  </div>
+  <button class="nav-button" routerLink="/todos">⬅ Back to Todos</button>
+</div>

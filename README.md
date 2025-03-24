@@ -1,59 +1,114 @@
+
 # TodoApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
-## Development server
+## Overview
 
-To start a local development server, run:
+TodoApp is a full-stack application using **Angular** (frontend) and **Node.js + Express + MongoDB** (backend). It allows for user registration, login via JWT tokens, and personal task management – each user only sees their own todos.
 
-```bash
+## Features
+
+- Register and login securely (JWT authentication).
+- Add, edit, and mark todos as completed.
+- Search todos via query string filtering.
+- Users can only view their own todos (OPP applied in API via userId matching).
+
+## How to Download and Run
+
+### 1. Clone the Repository
+
+```
+git clone <your-repo-url>
+cd TodoApp
+```
+
+### 2. Install Dependencies
+
+For Angular frontend:
+
+```
+cd todo-app
+npm install
+```
+
+For Node.js backend:
+
+```
+cd server
+npm install
+```
+
+### 3. Run the Application
+
+- **Backend** (runs on port 5000):
+
+```
+node index.js
+```
+
+- **Frontend** (runs on port 4200):
+
+```
+cd todo-app
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Visit: `http://localhost:4200/`
 
-## Code scaffolding
+## Unit Tests
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Functions Tested:
 
-```bash
-ng generate component component-name
+- **removeDuplicates(strings: string[])**:
+  - Ensures duplicate titles are removed from a list.
+- **findLongestWord(text: string)**:
+  - Finds the longest word in a string of text.
+
+Tests are written in `string-utils.spec.ts`. Run them using:
+
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
 ng test
 ```
 
-## Running end-to-end tests
+This uses the **Karma test runner** for Angular.
 
-For end-to-end (e2e) testing, run:
+## OPP (Object-Oriented Programming) Explanation
 
-```bash
+- A `Todo` object is created per task, encapsulating `title`, `description`, `completed`, and `userId`.
+- User-specific data isolation is achieved by associating each Todo with a `userId` (decoded from JWT).
+- The backend enforces OPP by querying todos **only where userId matches** the authenticated user.
+
+## Additional CLI Tools
+
+Generate new Angular components easily:
+
+```
+ng generate component your-component-name
+```
+
+For help:
+
+```
+ng generate --help
+```
+
+## Building for Production
+
+```
+ng build
+```
+
+Artifacts will be in the `dist/` directory, optimized for performance.
+
+## End-to-End Testing
+
+```
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Configure your preferred e2e framework (e.g., Cypress, Protractor).
 
-## Additional Resources
+## Conclusion
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project demonstrates practical full-stack development, integrating authentication, secure data access, and frontend-backend communication.
